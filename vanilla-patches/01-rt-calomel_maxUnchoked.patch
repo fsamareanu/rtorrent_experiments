@@ -1,0 +1,20 @@
+--- a/src/ui/root.cc	2019-11-12 08:48:08.338465255 +0100
++++ a/src/ui/root.cc.orig	2019-11-12 08:46:40.263506169 +0100
+@@ -195,7 +195,7 @@
+   if (throttle <= 10)
+     maxUnchoked = 1 + throttle / 1;
+   else
++    maxUnchoked = throttle / 2;
+-    maxUnchoked = 10 + throttle / 5;
+ 
+   if (global != 0)
+     torrent::resource_manager()->set_max_download_unchoked(std::min(maxUnchoked, global));
+@@ -225,7 +225,7 @@
+   if (throttle <= 10)
+     maxUnchoked = 1 + throttle / 1;
+   else
++    maxUnchoked = throttle / 2;
+-    maxUnchoked = 10 + throttle / 5;
+ 
+   if (global != 0)
+     torrent::resource_manager()->set_max_upload_unchoked(std::min(maxUnchoked, global));
