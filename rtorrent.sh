@@ -17,7 +17,7 @@ RTORRENT_URL="http://rtorrent.net/downloads/rtorrent-$RTORRENT_VER.tar.gz"
 XMLRPC_URL="https://sourceforge.net/projects/xmlrpc-c/files/Xmlrpc-c%20Super%20Stable/$XMLRPC_VER/xmlrpc-c-$XMLRPC_VER.tgz/download"
 
 # Misc.
-SRC_DIR="$HOME/src/build/rtorrent_experiments/source"
+SRC_DIR="$HOME/src/build/rtorrent_experiments/sources"
 DEB_DIR="$HOME/src/build/rtorrent_experiments/binaries"
 PATCH_DIR="$HOME/src/build/rtorrent_experiments/vanilla-patches"
 PKG_CONFIG_PATH="$PREFIX/lib/pkgconfig"
