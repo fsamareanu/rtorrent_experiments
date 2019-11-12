@@ -36,6 +36,7 @@ PATCH_DIR="$INSTDIR/vanilla-patches"
 set -e
 
 # Remove old versions
+sudo apt remove --purge libxmlrpc-core-c3 libxmlrpc-core-c3-dev
 #sudo dpkg -P xmlrpc-c
 #sudo dpkg -P libtorrent
 #sudo dpkg -P rtorrent
