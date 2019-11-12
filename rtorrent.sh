@@ -68,10 +68,10 @@ fi
 if [ ! -d $SRC_DIR/libtorrent-$LIBTORRENT_VER ]; then
 	tar xvzf libtorrent-$LIBTORRENT_VER.tar.gz
 	cd $SRC_DIR/libtorrent-$LIBTORRENT_VER
-	patch -p1 < $PATCH_DIR/02-lt-udns.patch
-	patch -p1 < $PATCH_DIR/01-lt-calomel_disconnect_clients.patch
-	patch -p1 < $PATCH_DIR/02-lt-calomel_tracker_announce.patch
-	patch -p1 < $PATCH_DIR/lt-ps_all_02-better-bencode-errors_all.patch
+	patch -p1 < $PATCH_DIR/01-lt-udns.patch
+	patch -p1 < $PATCH_DIR/02-lt-calomel_disconnect_clients.patch
+	patch -p1 < $PATCH_DIR/03-lt-calomel_tracker_announce.patch
+	patch -p1 < $PATCH_DIR/04-lt-ps_all-better-bencode-errors_all.patch
 fi
 cd $SRC_DIR/libtorrent-$LIBTORRENT_VER
 ./autogen.sh
