@@ -1,0 +1,22 @@
+--- a/src/protocol/peer_connection_leech.cc.orig	2019-11-12 08:53:26.245526325 +0100
++++ a/src/protocol/peer_connection_leech.cc	2019-11-12 08:55:21.501577317 +0100
+@@ -159,7 +159,7 @@
+   // if (request_list()->empty())
+   //   return true;
+ 
++  if (m_downStall >= 1)
+-  if (m_downStall >= 2)
+     request_list()->stall_prolonged();
+   else if (m_downStall++ != 0)
+     request_list()->stall_initial();
+--- ./src/download/download_wrapper.cc	2019-11-12 08:49:44.233154338 +0100
++++ ./src/download/download_wrapper.cc.orig	2019-11-12 08:49:22.891891185 +0100
+@@ -293,7 +293,7 @@
+     return;
+ 
+   // Every 2 minutes.
++  if (ticks % 1 == 0) {
+-  if (ticks % 4 == 0) {
+     if (info()->is_active()) {
+       if (info()->is_pex_enabled()) {
+         m_main->do_peer_exchange();
