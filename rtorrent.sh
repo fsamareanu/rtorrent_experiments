@@ -63,6 +63,12 @@ fi
 cd $SRC_DIR/xmlrpc-c-$XMLRPC_VER
 ./configure --prefix="$PREFIX" --enable-libxml2-backend --disable-libwww-client --disable-wininet-client --disable-abyss-server --disable-cgi-server --disable-cplusplus
 make -j$(nproc)
+cat << EOF > description-pak
+Programming library for writing an XML-RPC server or client in C or C++.
+XML-RPC is a standard network protocol to allow a client program to make a simple remote procedure call (RPC) type request of a server.
+Like SOAP or CORBA, but much simpler.
+EOF
+
 sudo checkinstall -D "$CHECKINSTALL_OPTS" --pkgrelease="$PKG_RELEASE" --install=no -y
 sleep 3
 cp $SRC_DIR/xmlrpc-c-$XMLRPC_VER/xmlrpc-c_"$XMLRPC_VER"-"$PKG_RELEASE"_amd64.deb $DEB_DIR
@@ -86,6 +92,12 @@ cd $SRC_DIR/libtorrent-$LIBTORRENT_VER
 ./autogen.sh
 ./configure --prefix="$PREFIX" --disable-debug --with-posix-fallocate
 make -j$(nproc)
+cat << EOF > description-pak
+C++ BitTorrent library by Rakshasa
+LibTorrent is a BitTorrent library written in C++ for *nix. It is
+designed to avoid redundant copying and storing of data that other
+clients and libraries suffer from.
+EOF
 sudo checkinstall -D "$CHECKINSTALL_OPTS" --pkgrelease="$PKG_RELEASE" --install=no -y
 sleep 3
 cp $SRC_DIR/libtorrent-$LIBTORRENT_VER/libtorrent_"$LIBTORRENT_VER"-"$PKG_RELEASE"_amd64.deb $DEB_DIR
@@ -106,6 +118,9 @@ cd $SRC_DIR/rtorrent-$RTORRENT_VER
 ./autogen.sh
 ./configure --prefix="$PREFIX" --with-xmlrpc-c
 make -j$(nproc)
+cat << EOF > description-pak
+ncurses BitTorrent client based on LibTorrent from rakshasa
+EOF
 sudo checkinstall -D "$CHECKINSTALL_OPTS" --pkgrelease="$PKG_RELEASE" --install=no -y
 sleep 3
 cp $SRC_DIR/rtorrent-$RTORRENT_VER/rtorrent_"$RTORRENT_VER"-"$PKG_RELEASE"_amd64.deb $DEB_DIR
