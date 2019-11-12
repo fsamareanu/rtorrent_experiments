@@ -98,7 +98,7 @@ LibTorrent is a BitTorrent library written in C++ for *nix. It is
 designed to avoid redundant copying and storing of data that other
 clients and libraries suffer from.
 EOF
-sudo checkinstall -D "$CHECKINSTALL_OPTS" --pkgrelease="$PKG_RELEASE" --install=no -y
+sudo checkinstall -D "$CHECKINSTALL_OPTS" --pkgrelease="$PKG_RELEASE" --requires="xmlrpc-c \(\>= $XMLRPC_VER-$PKG_RELEASE\\)" --install=no -y
 sleep 3
 cp $SRC_DIR/libtorrent-$LIBTORRENT_VER/libtorrent_"$LIBTORRENT_VER"-"$PKG_RELEASE"_amd64.deb $DEB_DIR
 sudo rm -rf $SRC_DIR/libtorrent-$LIBTORRENT_VER
@@ -121,7 +121,7 @@ make -j$(nproc)
 cat << EOF > description-pak
 ncurses BitTorrent client based on LibTorrent from rakshasa
 EOF
-sudo checkinstall -D "$CHECKINSTALL_OPTS" --pkgrelease="$PKG_RELEASE" --install=no -y
+sudo checkinstall -D "$CHECKINSTALL_OPTS" --pkgrelease="$PKG_RELEASE" --requires="libtorrent \(\>= $LIBTORRENT_VER-$PKG_RELEASE\),xmlrpc-c \(\>= $XMLRPC_VER-$PKG_RELEASE\\)" --install=no -y
 sleep 3
 cp $SRC_DIR/rtorrent-$RTORRENT_VER/rtorrent_"$RTORRENT_VER"-"$PKG_RELEASE"_amd64.deb $DEB_DIR
 sudo rm -rf $SRC_DIR/rtorrent-$RTORRENT_VER
